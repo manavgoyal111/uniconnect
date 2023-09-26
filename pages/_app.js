@@ -131,5 +131,6 @@ const MyApp = ({ Component, pageProps }) => {
 
 export default MyApp;
 
+// Remove extra items from product page
 // Configure Cab UI and Database
 // Connect admin dashboard to Database

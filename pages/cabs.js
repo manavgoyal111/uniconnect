@@ -5,6 +5,23 @@ import mongoose from "mongoose";
 import Product from "../models/Product";
 
 const Cab = ({ products }) => {
+	const cabData = [
+		{
+			from: 'Location A',
+			to: 'Location B',
+			price: 20,
+			time: 30,
+			desc: 'Description of Cab 1',
+		},
+		{
+			from: 'Location C',
+			to: 'Location D',
+			price: 25,
+			time: 40,
+			desc: 'Description of Cab 2',
+		},
+	];
+
 	return (
 		<div className="min-h-screen">
 			<Head>
