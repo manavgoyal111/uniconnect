@@ -4,11 +4,11 @@ import Image from "next/image";
 import mongoose from "mongoose";
 import Product from "../models/Product";
 
-const Note = ({ products }) => {
+const Prod = ({ products }) => {
 	return (
 		<div className="min-h-screen">
 			<Head>
-				<title>Note | Uniconnect</title>
+				<title>Prod | Uniconnect</title>
 			</Head>
 
 			<section className="text-gray-600 body-font">
@@ -16,7 +16,7 @@ const Note = ({ products }) => {
 					<div className="flex flex-wrap -m-4 justify-center mx-5">
 						{Object.keys(products).length === 0 && (
 							<p>
-								Sorry, All the Notes are currently out of stock. New stock coming
+								Sorry, All the Prods are currently out of stock. New stock coming
 								soon. Stay tuned!
 							</p>
 						)}
@@ -38,7 +38,7 @@ const Note = ({ products }) => {
 									</a>
 									<div className="mt-4 text-center md:text-left">
 										<h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-											Note
+											Prod
 										</h3>
 										<h2 className="text-gray-900 title-font text-lg font-medium">
 											{products[item].title}
@@ -104,21 +104,21 @@ export async function getServerSideProps(context) {
 		await mongoose.connect(process.env.MONGO_URI);
 	}
 
-	let products = await Product.find({ category: "note" });
-	let notes = {};
+	let products = await Product.find({ category: "prod" });
+	let prods = {};
 	for (let item of products) {
-		if (item.title in notes) {
-			// if (!notes[item.title].color.includes(item.color) && item.availableQty > 0) {
-			// 	notes[item.title].color.push(item.color);
+		if (item.title in prods) {
+			// if (!prods[item.title].color.includes(item.color) && item.availableQty > 0) {
+			// 	prods[item.title].color.push(item.color);
 			// }
-			// if (!notes[item.title].size.includes(item.size) && item.availableQty > 0) {
-			// 	notes[item.title].size.push(item.size);
+			// if (!prods[item.title].size.includes(item.size) && item.availableQty > 0) {
+			// 	prods[item.title].size.push(item.size);
 			// }
 		} else {
-			notes[item.title] = JSON.parse(JSON.stringify(item));
+			prods[item.title] = JSON.parse(JSON.stringify(item));
 			// if (item.availableQty > 0) {
-			// 	notes[item.title].color = [item.color];
-			// 	notes[item.title].size = [item.size];
+			// 	prods[item.title].color = [item.color];
+			// 	prods[item.title].size = [item.size];
 			// } else {
 			// 	sarees[item.title].color = [];
 			// 	sarees[item.title].size = [];
@@ -127,8 +127,8 @@ export async function getServerSideProps(context) {
 	}
 
 	return {
-		props: { products: JSON.parse(JSON.stringify(notes)) },
+		props: { products: JSON.parse(JSON.stringify(prods)) },
 	};
 }
 
-export default Note;
+export default Prod;

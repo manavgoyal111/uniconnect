@@ -116,9 +116,9 @@ const Navbar = ({ user, logout, cart, addToCart, removeFromCart, clearCart, subT
 
 				<nav>
 					<ul className="flex items-center space-x-4 font-bold md:text-md">
-						<Link href="/notes">
+						<Link href="/products">
 							<a className="hover:text-gray-800">
-								<li>Notes</li>
+								<li>Products</li>
 							</a>
 						</Link>
 						<Link href="/cabs">
