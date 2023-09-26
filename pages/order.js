@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import mongoose from "mongoose";
 import Order from "../models/Order";
@@ -85,9 +86,11 @@ const MyOrder = ({ order, clearCart }) => {
 									Subtotal: ₹{order.amount / 100}
 								</span>
 								<div className="my-6">
-									<button className="flex text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded">
-										Track Order
-									</button>
+									<Link href="/track">
+										<button className="flex text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded">
+											Track Order
+										</button>
+									</Link>
 								</div>
 							</div>
 						</div>

@@ -88,7 +88,9 @@ const Orders = () => {
 												</td>
 												<td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
 													<Link href={`/order?id=${order._id}`}>
-														<a>Details</a>
+														<button className="flex text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded">
+															Details
+														</button>
 													</Link>
 												</td>
 											</tr>

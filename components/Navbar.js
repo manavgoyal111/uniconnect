@@ -73,6 +73,13 @@ const Navbar = ({ user, logout, cart, addToCart, removeFromCart, clearCart, subT
 										</li>
 									</a>
 								</Link>
+								<Link href="/admin">
+									<a>
+										<li className="py-1 text-sm hover:text-green-700 font-bold cursor-pointer">
+											Admin
+										</li>
+									</a>
+								</Link>
 								<li
 									onClick={logout}
 									className="py-1 text-sm hover:text-green-700 font-bold cursor-pointer"
@@ -109,31 +116,6 @@ const Navbar = ({ user, logout, cart, addToCart, removeFromCart, clearCart, subT
 
 				<nav>
 					<ul className="flex items-center space-x-4 font-bold md:text-md">
-						<Link href="/fruits">
-							<a className="hover:text-gray-800">
-								<li>Fruits</li>
-							</a>
-						</Link>
-						<Link href="/vegetable">
-							<a className="hover:text-gray-800">
-								<li>Vegetable</li>
-							</a>
-						</Link>
-						<Link href="/plants">
-							<a className="hover:text-gray-800">
-								<li>Plants</li>
-							</a>
-						</Link>
-						<Link href="/tools">
-							<a className="hover:text-gray-800">
-								<li>Tools</li>
-							</a>
-						</Link>
-						<Link href="/others">
-							<a className="hover:text-gray-800">
-								<li>Others</li>
-							</a>
-						</Link>
 						<Link href="/notes">
 							<a className="hover:text-gray-800">
 								<li>Notes</li>

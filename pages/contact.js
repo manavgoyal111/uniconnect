@@ -16,7 +16,7 @@ const Contact = () => {
 				Have questions, suggestions, or just want to say hello? We would love to hear from you!
 			</p>
 			<p className="mb-4">
-				Uniconnect.com is dedicated to connecting farmers and consumers in the most efficient and sustainable way possible. Our mission is to support local agriculture and provide fresh, high-quality produce to your doorstep. With a team of passionate individuals committed to the well-being of both farmers and customers, we strive to create a vibrant and thriving agricultural community. Join us in our journey to make farming more accessible and enjoyable for everyone.
+				Uniconnect.com is dedicated to facilitating collaboration among college students and promoting sustainable commuting. Our mission is to make college life more convenient and environmentally friendly by connecting students for note-sharing and efficient cab coordination.
 			</p>
 			<p className="mb-4">
 				You can reach us via email at <a href="mailto:contact@Uniconnect.com" className="text-blue-500">contact@Uniconnect.com</a>.

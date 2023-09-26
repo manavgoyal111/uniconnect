@@ -13,7 +13,7 @@ const MyApp = ({ Component, pageProps }) => {
 	const [subTotal, setSubTotal] = useState(0);
 	const [user, setUser] = useState({ value: null });
 	const [key, setKey] = useState();
-	const [progress, setProgress] = useState(0);
+	const [progress, setProgress] = useState(0)
 
 	useEffect(() => {
 		router.events.on("routeChangeStart", () => {
@@ -130,3 +130,6 @@ const MyApp = ({ Component, pageProps }) => {
 };
 
 export default MyApp;
+
+// Configure Cab UI and Database
+// Connect admin dashboard to Database

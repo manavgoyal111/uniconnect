@@ -26,15 +26,13 @@ const Home = () => {
 				<div className="container px-5 py-24 mx-auto">
 					<div className="flex flex-wrap w-full mb-20 flex-col items-center text-center">
 						<h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">
-							A collaborative notes and cab sharing platform  with Uniconnect.com
+							A collaborative notes and cab sharing platform with Uniconnect.com
 						</h1>
 						<p className="lg:w-1/2 w-full leading-relaxed text-gray-500">
-							Explore a world of farm-fresh goodness brought directly to your doorstep.
+							Explore the world of collaborative learning and efficient commuting, in one place!
 						</p>
 						<p className="lg:w-1/2 w-full leading-relaxed text-gray-500">
-							Discover a wide variety of fruits, vegetables, and more, cultivated with
-							care by local farmers. Join us in celebrating the bounty of the
-							harvest.
+							Uniconnect is your gateway to academic success and seamless transportation. It iss where junior and senior college students come together to share knowledge, notes, and even cab rides.
 						</p>
 					</div>
 					<div className="flex flex-wrap -m-4">
@@ -54,11 +52,10 @@ const Home = () => {
 									</svg>
 								</div>
 								<h2 className="text-lg text-gray-900 font-medium title-font mb-2">
-									Fresh from the Fields
+									Collaborative Learning
 								</h2>
 								<p className="leading-relaxed text-base">
-									Our farmers take pride in delivering the freshest produce from their
-									fields straight to your home. Taste the difference with Uniconnect.com.
+									We are committed to fostering a culture of knowledge sharing among college students. Uniconnect.com is your gateway to collaborative learning. Explore a world of academic excellence and educational synergy.
 								</p>
 							</div>
 						</div>
@@ -80,11 +77,10 @@ const Home = () => {
 									</svg>
 								</div>
 								<h2 className="text-lg text-gray-900 font-medium title-font mb-2">
-									Quality Assurance
+									Student-Driven Excellence
 								</h2>
 								<p className="leading-relaxed text-base">
-									We ensure that every product you receive meets our strict quality
-									standards. Your satisfaction is our top priority.
+									Uniconnect.com is a hub where students empower students. Join us in celebrating the vibrant exchange of knowledge and notes, cultivated by your peers. Dive into the world of academic growth and camaraderie.
 								</p>
 							</div>
 						</div>
@@ -105,11 +101,10 @@ const Home = () => {
 									</svg>
 								</div>
 								<h2 className="text-lg text-gray-900 font-medium title-font mb-2">
-									Sustainable Farming
+									Academic Abundance
 								</h2>
 								<p className="leading-relaxed text-base">
-									We support sustainable farming practices that respect the
-									environment. Your choice makes a positive impact on our planet.
+									Uniconnect.com brings together a rich harvest of academic resources. From notes to insights, your academic journey is enriched by the bountiful offerings of our student community. Discover more.
 								</p>
 							</div>
 						</div>

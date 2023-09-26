@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 const Footer = () => {
 	return (
@@ -22,26 +21,34 @@ const Footer = () => {
 							SHOP
 						</h2>
 						<nav className="list-none mb-10">
-							<li><Link href="/fruits">
-								<a className="text-gray-600 hover:text-gray-800">
-									Fruits
-								</a>
-							</Link></li>
-							<li><Link href="/vegetable">
-								<a className="text-gray-600 hover:text-gray-800">
-									Vegetable
-								</a>
-							</Link></li>
-							<li><Link href="/plants">
-								<a className="text-gray-600 hover:text-gray-800">
-									Plants
-								</a>
-							</Link></li>
-							<li><Link href="/tools">
-								<a className="text-gray-600 hover:text-gray-800">
-									Tools
-								</a>
-							</Link></li>
+							<li>
+								<Link href="/notes">
+									<a className="text-gray-600 hover:text-gray-800">
+										Notes
+									</a>
+								</Link>
+							</li>
+							<li>
+								<Link href="/cabs">
+									<a className="text-gray-600 hover:text-gray-800">
+										Cabs
+									</a>
+								</Link>
+							</li>
+							<li>
+								<Link href="/notes">
+									<a className="text-gray-600 hover:text-gray-800">
+										Notes
+									</a>
+								</Link>
+							</li>
+							<li>
+								<Link href="/cabs">
+									<a className="text-gray-600 hover:text-gray-800">
+										Cabs
+									</a>
+								</Link>
+							</li>
 						</nav>
 					</div>
 					<div className="lg:w-1/3 md:w-1/2 w-full px-4">
@@ -60,7 +67,7 @@ const Footer = () => {
 								</Link>
 							</li>
 							<li>
-								<Link href="orders">
+								<Link href="/track">
 									<a className="text-gray-600 hover:text-gray-800">Shipping</a>
 								</Link>
 							</li>

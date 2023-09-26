@@ -1,1 +1,1 @@
-[Uniconnect](https://trendz-with-threadz.vercel.app/)
+[Uniconnect - Sharing and Caring](https://uniconnects.vercel.app/)

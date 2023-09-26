@@ -44,7 +44,7 @@ const Note = ({ products }) => {
 											{products[item].title}
 										</h2>
 										<p className="mt-1">₹{products[item].price}</p>
-										<div className="mt-1">
+										{/* <div className="mt-1">
 											{products[item].size.includes("S") && (
 												<span className="border border-gray-300 px-1 mx-1">
 													S
@@ -70,8 +70,8 @@ const Note = ({ products }) => {
 													XXL
 												</span>
 											)}
-										</div>
-										<div className="mt-1">
+										</div> */}
+										{/* <div className="mt-1">
 											{products[item].color.includes("red") && (
 												<button className="border-2 border-gray-300 bg-red-600 rounded-full w-6 h-6 focus:outline-none"></button>
 											)}
@@ -87,7 +87,7 @@ const Note = ({ products }) => {
 											{products[item].color.includes("yellow") && (
 												<button className="border-2 border-gray-300 bg-yellow-600 rounded-full w-6 h-6 focus:outline-none"></button>
 											)}
-										</div>
+										</div> */}
 									</div>
 								</div>
 							</Link>
@@ -108,21 +108,21 @@ export async function getServerSideProps(context) {
 	let notes = {};
 	for (let item of products) {
 		if (item.title in notes) {
-			if (!notes[item.title].color.includes(item.color) && item.availableQty > 0) {
-				notes[item.title].color.push(item.color);
-			}
-			if (!notes[item.title].size.includes(item.size) && item.availableQty > 0) {
-				notes[item.title].size.push(item.size);
-			}
+			// if (!notes[item.title].color.includes(item.color) && item.availableQty > 0) {
+			// 	notes[item.title].color.push(item.color);
+			// }
+			// if (!notes[item.title].size.includes(item.size) && item.availableQty > 0) {
+			// 	notes[item.title].size.push(item.size);
+			// }
 		} else {
 			notes[item.title] = JSON.parse(JSON.stringify(item));
-			if (item.availableQty > 0) {
-				notes[item.title].color = [item.color];
-				notes[item.title].size = [item.size];
-			} else {
-				sarees[item.title].color = [];
-				sarees[item.title].size = [];
-			}
+			// if (item.availableQty > 0) {
+			// 	notes[item.title].color = [item.color];
+			// 	notes[item.title].size = [item.size];
+			// } else {
+			// 	sarees[item.title].color = [];
+			// 	sarees[item.title].size = [];
+			// }
 		}
 	}
 
