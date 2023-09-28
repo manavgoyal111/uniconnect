@@ -131,6 +131,7 @@ const MyApp = ({ Component, pageProps }) => {
 
 export default MyApp;
 
-// Remove extra items from product page
-// Configure Cab UI and Database
+// Implement a search bar in the products page, display only the searched category of items
+// Remove extra items from navbar cart
+// Check if ordering service is working
 // Connect admin dashboard to Database

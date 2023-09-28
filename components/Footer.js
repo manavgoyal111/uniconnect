@@ -22,13 +22,6 @@ const Footer = () => {
 						</h2>
 						<nav className="list-none mb-10">
 							<li>
-								<Link href="/notes">
-									<a className="text-gray-600 hover:text-gray-800">
-										Notes
-									</a>
-								</Link>
-							</li>
-							<li>
 								<Link href="/cabs">
 									<a className="text-gray-600 hover:text-gray-800">
 										Cabs
@@ -43,9 +36,16 @@ const Footer = () => {
 								</Link>
 							</li>
 							<li>
-								<Link href="/cabs">
+								<Link href="/notes">
 									<a className="text-gray-600 hover:text-gray-800">
-										Cabs
+										Notes
+									</a>
+								</Link>
+							</li>
+							<li>
+								<Link href="/others">
+									<a className="text-gray-600 hover:text-gray-800">
+										Others
 									</a>
 								</Link>
 							</li>

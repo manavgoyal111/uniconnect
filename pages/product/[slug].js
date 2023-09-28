@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";
@@ -8,21 +8,12 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Product from "../../models/Product";
 
-const Post = ({ addToCart, buyNow, product, variants, error }) => {
+const Post = ({ addToCart, buyNow, product, error }) => {
 	const router = useRouter();
 	const { slug } = router.query;
 
 	const [pin, setPin] = useState();
 	const [service, setService] = useState();
-	const [color, setColor] = useState();
-	const [size, setSize] = useState();
-
-	useEffect(() => {
-		if (!error) {
-			setColor(product.color);
-			setSize(product.size);
-		}
-	}, [router.query]);
 
 	const checkServiceability = async () => {
 		let pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pincode`);
@@ -56,11 +47,6 @@ const Post = ({ addToCart, buyNow, product, variants, error }) => {
 		setPin(e.target.value);
 	};
 
-	const refreshVariant = (newColor, newSize) => {
-		let url = `${process.env.NEXT_PUBLIC_HOST}/product/${variants[newColor][newSize]["slug"]}`;
-		router.push(url);
-	};
-
 	if (error == 404) {
 		return (
 			<main className="h-screen w-full flex flex-col justify-center items-center bg-green-400">
@@ -86,7 +72,7 @@ const Post = ({ addToCart, buyNow, product, variants, error }) => {
 	return (
 		<div>
 			<Head>
-				<title>Product | Uniconnect</title>
+				<title>{product.title} | Uniconnect</title>
 			</Head>
 
 			<ToastContainer
@@ -115,25 +101,18 @@ const Post = ({ addToCart, buyNow, product, variants, error }) => {
 							<h2 className="text-sm title-font text-gray-500 tracking-widest">
 								Uniconnect
 							</h2>
-							<h1 className="text-gray-900 text-3xl title-font font-medium mb-1 border-b-2 border-gray-100 pb-5">
+							<h1 className="text-gray-900 text-3xl title-font font-medium my-1 border-b-2 border-gray-100 pb-5">
 								{product.title}
 							</h1>
 							<p className="leading-relaxed">{product.desc}</p>
-							<div className="flex mt-6 items-center pb-5 mb-5">
-								{product.availableQty <= 0 ? (
-									<span className="title-font font-medium text-2xl text-gray-900">
-										Out of Stock!
-									</span>
-								) : (
-									<span className="title-font font-medium text-2xl text-gray-900">
-										₹{product.price}
-									</span>
-								)}
+							<div className="flex my-6 items-center pb-5">
+								<span className="title-font font-medium text-2xl text-gray-900">
+									₹{product.price}
+								</span>
 								<button
 									onClick={() => {
-										buyNow(slug, 1, product.price, product.title, size, color);
+										buyNow(slug, product.price, product.title);
 									}}
-									disabled={product.availableQty <= 0 ? true : false}
 									className="flex ml-8 text-white bg-green-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-green-600 rounded disabled:bg-green-300"
 								>
 									Buy Now
@@ -142,14 +121,10 @@ const Post = ({ addToCart, buyNow, product, variants, error }) => {
 									onClick={() => {
 										addToCart(
 											slug,
-											1,
 											product.price,
-											product.title,
-											size,
-											color
+											product.title
 										);
 									}}
-									disabled={product.availableQty <= 0 ? true : false}
 									className="flex ml-4 text-white bg-green-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-green-600 rounded disabled:bg-green-300"
 								>
 									Add to Cart
@@ -203,26 +178,10 @@ export async function getServerSideProps(context) {
 		};
 	}
 
-	let variants = await Product.find({
-		title: product.title,
-		category: product.category,
-	});
-	// Format: {red: {XL: {slug: "wear-saree"}}}
-	let colorSizeSlug = {};
-	for (let item of variants) {
-		if (Object.keys(colorSizeSlug).includes(item.color)) {
-			colorSizeSlug[item.color][item.size] = { slug: item.slug };
-		} else {
-			colorSizeSlug[item.color] = {};
-			colorSizeSlug[item.color][item.size] = { slug: item.slug };
-		}
-	}
-
 	return {
 		props: {
 			error,
 			product: JSON.parse(JSON.stringify(product)),
-			variants: JSON.parse(JSON.stringify(colorSizeSlug)),
 		},
 	};
 }

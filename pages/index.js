@@ -29,10 +29,10 @@ const Home = () => {
 							A collaborative notes and cab sharing platform with Uniconnect.com
 						</h1>
 						<p className="lg:w-1/2 w-full leading-relaxed text-gray-500">
-							Explore the world of collaborative learning and efficient commuting, in one place!
+							Explore the world of collaborative learning and efficient commuting.
 						</p>
 						<p className="lg:w-1/2 w-full leading-relaxed text-gray-500">
-							Uniconnect is your gateway to academic success and seamless transportation. It iss where junior and senior college students come together to share knowledge, notes, and even cab rides.
+							Uniconnect is your gateway to academic success and seamless transportation. It is where junior and senior college students come together to share knowledge, notes, and even cab rides.
 						</p>
 					</div>
 					<div className="flex flex-wrap -m-4">
