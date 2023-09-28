@@ -131,7 +131,7 @@ const MyApp = ({ Component, pageProps }) => {
 
 export default MyApp;
 
+// Organize assets folder
 // Implement a search bar in the products page, display only the searched category of items
-// Remove extra items from navbar cart
-// Check if ordering service is working
-// Connect admin dashboard to Database
+// Create Add Product & Add Cab page in Admin
+// Remove extra items from navbar cart and Check if ordering service is working

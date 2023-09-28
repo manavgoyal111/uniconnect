@@ -38,11 +38,6 @@ const Products = ({ products }) => {
 								Image
 							</Typography>
 						</TableCell>
-						<TableCell>
-							<Typography color="textSecondary" variant="h6">
-								Size/Color
-							</Typography>
-						</TableCell>
 						<TableCell align="right">
 							<Typography color="textSecondary" variant="h6">
 								Price
@@ -67,11 +62,6 @@ const Products = ({ products }) => {
 							</TableCell>
 							<TableCell>
 								<Image src={product.img} alt="Product" height={40} width={40} />
-							</TableCell>
-							<TableCell>
-								<Typography>
-									{product.size}/{product.color}
-								</Typography>
 							</TableCell>
 							<TableCell align="right">
 								<Typography variant="h6">₹{product.price}</Typography>

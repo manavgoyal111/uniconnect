@@ -19,8 +19,10 @@ import Menuitems from "./MenuItems";
 import { useRouter } from "next/router";
 
 const Sidebar = ({ isMobileSidebarOpen, onSidebarClose, isSidebarOpen }) => {
-	const [open, setOpen] = React.useState(true);
+	let curl = useRouter();
+	const location = curl.pathname;
 
+	const [open, setOpen] = React.useState(true);
 	const lgUp = useMediaQuery((theme) => theme.breakpoints.up("lg"));
 
 	const handleClick = (index) => {
@@ -30,16 +32,14 @@ const Sidebar = ({ isMobileSidebarOpen, onSidebarClose, isSidebarOpen }) => {
 			setOpen(index);
 		}
 	};
-	let curl = useRouter();
-	const location = curl.pathname;
 
 	const SidebarContent = (
 		<Box p={2} height="100%">
 			<div className="logo mr-auto md:mx-5">
-				<NextLink href="/admin">
+				<NextLink href="/">
 					<a className="flex justify-center text-green-500 font-bold">
 						<Typography variant="h3" fontWeight="400">
-							Admin
+							Uniconnect
 						</Typography>
 					</a>
 				</NextLink>

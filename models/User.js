@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema(
 		password: { type: String, required: true },
 		address: { type: String, default: "" },
 		pincode: { type: String, default: "" },
-		phone: { type: String, default: "" },
+		phone: { type: Number, default: "" },
 	},
 	{ timestamps: true }
 );
