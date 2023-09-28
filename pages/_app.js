@@ -133,5 +133,4 @@ export default MyApp;
 
 // Organize assets folder
 // Implement a search bar in the products page, display only the searched category of items
-// Create Add Product & Add Cab page in Admin
 // Remove extra items from navbar cart and Check if ordering service is working

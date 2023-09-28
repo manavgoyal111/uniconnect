@@ -5,27 +5,21 @@ import {
 	Grid,
 	Stack,
 	TextField,
-	Checkbox,
-	FormGroup,
-	FormControlLabel,
-	RadioGroup,
-	Radio,
-	FormLabel,
-	FormControl,
 	Button,
 } from "@mui/material";
 import BaseCard from "../../src/components/baseCard/BaseCard";
 import FullLayout from "../../src/layouts/FullLayout";
 import theme from "../../src/theme/theme";
 
-const Add = () => {
+const AddCab = () => {
 	const [form, setForm] = useState({
-		title: "",
-		type: "",
-		size: "",
-		color: "",
-		slug: "",
-		description: "",
+		from: "",
+		to: "",
+		email: "",
+		time: "",
+		price: "",
+		desc: "",
+		contact: "",
 	});
 
 	const onChange = (e) => {
@@ -35,108 +29,102 @@ const Add = () => {
 	const submitForm = async (e) => {
 		e.preventDefault();
 
-		// const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/add`);
-		// const response = await res.json();
-		// console.log(response);
+		const settings = {
+			method: 'POST',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				from: form.from,
+				to: form.to,
+				email: form.email,
+				time: form.time,
+				price: form.price,
+				desc: form.desc,
+				contact: form.contact,
+			})
+		};
+
+		const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/addcabs`, settings);
+		const response = await res.json();
+
+		if (response.success) {
+			setForm({
+				from: "",
+				to: "",
+				email: "",
+				time: "",
+				price: "",
+				desc: "",
+				contact: "",
+			})
+		}
 	};
 
 	return (
 		<>
 			<Head>
-				<title>Add | Dashboard | Uniconnect</title>
-				<meta name="description" content="Sareewear Dashboard Add products" />
+				<title>Add Cab | Admin | Uniconnect</title>
+				<meta name="description" content="Admin Dashboard Add cab" />
 			</Head>
 
 			<ThemeProvider theme={theme}>
 				<FullLayout>
 					<Grid container spacing={0}>
 						<Grid item xs={12} lg={12}>
-							<BaseCard title="Add a Product" className="text-green-500">
+							<BaseCard title="Add a Cab request" className="text-green-500">
 								<Stack spacing={3}>
 									<TextField
-										value={form.title}
+										value={form.from}
 										onChange={onChange}
-										name="title"
-										label="Title"
+										name="from"
+										label="From"
 										variant="outlined"
 									/>
 									<TextField
-										value={form.type}
+										value={form.to}
 										onChange={onChange}
-										name="type"
-										label="Type"
+										name="to"
+										label="To"
 										variant="outlined"
 									/>
 									<TextField
-										value={form.size}
+										value={form.email}
 										onChange={onChange}
-										name="size"
-										label="Size"
+										name="email"
+										label="Email"
 										variant="outlined"
 									/>
 									<TextField
-										value={form.color}
+										value={form.time}
 										onChange={onChange}
-										name="color"
-										label="Color"
+										name="time"
+										label="Time"
 										variant="outlined"
 									/>
 									<TextField
-										value={form.slug}
+										value={form.price}
 										onChange={onChange}
-										name="slug"
-										label="Slug"
+										name="price"
+										label="Price"
 										variant="outlined"
 									/>
 									<TextField
-										value={form.description}
+										value={form.contact}
 										onChange={onChange}
-										name="description"
-										label="Description"
+										name="contact"
+										label="Contact"
+										variant="outlined"
+									/>
+									<TextField
+										value={form.desc}
+										onChange={onChange}
+										name="desc"
+										label="Desc"
 										multiline
 										rows={3}
 									/>
-									<FormGroup>
-										<FormControlLabel
-											control={<Checkbox defaultChecked />}
-											label="Terms & Condition"
-										/>
-										<FormControlLabel
-											disabled
-											control={<Checkbox />}
-											label="Disabled"
-										/>
-									</FormGroup>
-									<FormControl>
-										<FormLabel
-											value={form.title}
-											onChange={onChange}
-											name="demo-radio-buttons-group-label"
-										>
-											Gender
-										</FormLabel>
-										<RadioGroup
-											aria-labelledby="demo-radio-buttons-group-label"
-											defaultValue="male"
-											name="radio-buttons-group"
-										>
-											<FormControlLabel
-												value="female"
-												control={<Radio />}
-												label="Female"
-											/>
-											<FormControlLabel
-												value="male"
-												control={<Radio />}
-												label="Male"
-											/>
-											<FormControlLabel
-												value="other"
-												control={<Radio />}
-												label="Other"
-											/>
-										</RadioGroup>
-									</FormControl>
 								</Stack>
 								<br />
 								<Button onClick={submitForm} variant="outlined" mt={2}>
@@ -151,4 +139,4 @@ const Add = () => {
 	);
 };
 
-export default Add;
+export default AddCab;

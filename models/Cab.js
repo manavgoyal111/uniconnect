@@ -8,7 +8,7 @@ const cabSchema = new mongoose.Schema(
 		time: { type: String, required: true },
 		price: { type: Number, required: true },
 		desc: { type: String },
-		contact: { type: Number },
+		contact: { type: Number }
 	},
 	{ timestamps: true }
 );
