@@ -50,16 +50,8 @@ const handler = async (req, res) => {
 					cart = req.body.cart;
 
 				for (let item in req.body.cart) {
-					sumTotal += cart[item].price * cart[item].qty;
+					sumTotal += cart[item].price
 					product = await Product.findOne({ slug: item });
-					// Check if the cart items are out of Stock
-					if (product.availableQty < cart[item].qty) {
-						return res.status(500).json({
-							success: false,
-							data: "Some items in your cart went out of stock, please try with lesser quantity!",
-							cartClear: true,
-						});
-					}
 
 					// Check if the Cart is Tampered with
 					if (product.price != cart[item].price) {
@@ -80,13 +72,6 @@ const handler = async (req, res) => {
 				}
 
 				// Check if the details are valid
-				if (req.body.phone.length !== 10 || !Number.isInteger(Number(req.body.phone))) {
-					return res.status(500).json({
-						success: false,
-						data: "Please enter a 10 digit phone number",
-						cartClear: false,
-					});
-				}
 				if (req.body.pincode.length !== 6 || !Number.isInteger(Number(req.body.pincode))) {
 					return res.status(500).json({
 						success: false,
@@ -94,6 +79,13 @@ const handler = async (req, res) => {
 						cartClear: false,
 					});
 				}
+				// if (toString(req.body.phone).length !== 10 || !Number.isInteger(Number(req.body.phone))) {
+				// 	return res.status(500).json({
+				// 		success: false,
+				// 		data: "Please enter a 10 digit phone number",
+				// 		cartClear: false,
+				// 	});
+				// }
 
 				// Initiate an Order corresponding to this OrderId
 				let o = new Order({

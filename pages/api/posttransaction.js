@@ -40,10 +40,7 @@ const handler = async (req, res) => {
 	if (orderInfo.status === "captured") {
 		let products = order.products;
 		for (let slug in products) {
-			await Product.findOneAndUpdate(
-				{ slug: slug },
-				{ $inc: { availableQty: -products[slug].qty } }
-			);
+			await Product.findOneAndDelete({ slug: slug });
 		}
 	}
 

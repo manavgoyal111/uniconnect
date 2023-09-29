@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import Script from "next/script";
-import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
+import { AiFillMinusCircle } from "react-icons/ai";
 import { BsFillBagCheckFill } from "react-icons/bs";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -49,7 +49,7 @@ const Checkout = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
 		if (
 			name.length > 3 &&
 			email.length > 3 &&
-			phone.length > 3 &&
+			toString(phone).length > 3 &&
 			address.length > 3 &&
 			pincode.length > 3 &&
 			subTotal > 0
@@ -92,6 +92,7 @@ const Checkout = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
 	};
 
 	const initiatePayment = async () => {
+		// console.log(phone.length, phone, toString(phone), toString(phone).length);
 		const orderData = {
 			subTotal,
 			cart,
@@ -345,32 +346,14 @@ const Checkout = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
 								<li key={idx}>
 									<div className="item flex my-5">
 										<div className="font-semibold">
-											{cart[k].name} ({cart[k].size}/{cart[k].variant})
+											{cart[k].name} (₹{cart[k].price})
 										</div>
 										<div className="flex items-center justify-center w-1/3 font-semibold text-lg">
 											<AiFillMinusCircle
 												onClick={() => {
 													removeFromCart(
 														k,
-														1,
-														cart[k].price,
-														cart[k].name,
-														cart[k].size,
-														cart[k].variant
-													);
-												}}
-												className="cursor-pointer text-green-500"
-											/>
-											<span className="mx-2 text-sm">{cart[k].qty}</span>
-											<AiFillPlusCircle
-												onClick={() => {
-													addToCart(
-														k,
-														1,
-														cart[k].price,
-														cart[k].name,
-														cart[k].size,
-														cart[k].variant
+														1
 													);
 												}}
 												className="cursor-pointer text-green-500"

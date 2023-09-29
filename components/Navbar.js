@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 import {
 	AiOutlineShoppingCart,
 	AiFillCloseCircle,
-	AiFillPlusCircle,
 	AiFillMinusCircle,
 } from "react-icons/ai";
 import { BsFillBagCheckFill } from "react-icons/bs";
@@ -166,36 +165,18 @@ const Navbar = ({ user, logout, cart, addToCart, removeFromCart, clearCart, subT
 								<li key={idx}>
 									<div className="item flex my-5">
 										<div className="w-2/3 font-semibold">
-											{cart[k].name} ({cart[k].size}/{cart[k].variant})
+											{cart[k].name} (₹{cart[k].price})
 										</div>
 										<div className="flex items-center justify-center w-1/3 font-semibold text-lg">
-											{/* <AiFillMinusCircle
+											<AiFillMinusCircle
 												onClick={() => {
 													removeFromCart(
 														k,
 														1,
-														cart[k].price,
-														cart[k].name,
-														cart[k].size,
-														cart[k].variant
 													);
 												}}
 												className="cursor-pointer text-green-500"
-											/> */}
-											{/* <span className="mx-2 text-sm">{cart[k].qty}</span> */}
-											{/* <AiFillPlusCircle
-												onClick={() => {
-													addToCart(
-														k,
-														1,
-														cart[k].price,
-														cart[k].name,
-														cart[k].size,
-														cart[k].variant
-													);
-												}}
-												className="cursor-pointer text-green-500"
-											/> */}
+											/>
 										</div>
 									</div>
 								</li>

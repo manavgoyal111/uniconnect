@@ -49,18 +49,14 @@ const MyApp = ({ Component, pageProps }) => {
 		setSubTotal(subt);
 	};
 
-	const addToCart = (itemCode, qty, price, name, size, variant) => {
+	const addToCart = (itemCode, price, name) => {
 		let newCart = JSON.parse(JSON.stringify(cart));
-		if (itemCode in cart) {
-			newCart[itemCode].qty = cart[itemCode].qty + qty;
-		} else {
-			newCart[itemCode] = { qty: 1, price, name, size, variant };
-		}
+		newCart[itemCode] = { qty: 1, price, name };
 		setCart(newCart);
 		saveCart(newCart);
 	};
 
-	const removeFromCart = (itemCode, qty, price, name, size, variant) => {
+	const removeFromCart = (itemCode, qty) => {
 		let newCart = JSON.parse(JSON.stringify(cart));
 		if (itemCode in cart) {
 			newCart[itemCode].qty = cart[itemCode].qty - qty;
@@ -77,9 +73,9 @@ const MyApp = ({ Component, pageProps }) => {
 		saveCart({});
 	};
 
-	const buyNow = (itemCode, qty, price, name, size, variant) => {
+	const buyNow = (itemCode, price, name, variant) => {
 		let newCart = {};
-		newCart[itemCode] = { qty: 1, price, name, size, variant };
+		newCart[itemCode] = { qty: 1, price, name, variant };
 		saveCart(newCart);
 		setCart(newCart);
 		router.push("/checkout");
@@ -131,6 +127,5 @@ const MyApp = ({ Component, pageProps }) => {
 
 export default MyApp;
 
-// Organize assets folder
-// Implement a search bar in the products page, display only the searched category of items
-// Remove extra items from navbar cart and Check if ordering service is working
+// Flask api for adding Note
+// Phone number length is not working in checkout page

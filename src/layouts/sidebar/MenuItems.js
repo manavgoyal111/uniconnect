@@ -10,6 +10,11 @@ const Menuitems = [
 		href: "/admin/addproduct",
 	},
 	{
+		title: "Add Notes",
+		icon: "plus-circle",
+		href: "/admin/addnote",
+	},
+	{
 		title: "Add Cab",
 		icon: "plus-circle",
 		href: "/admin/addcab",

@@ -58,26 +58,20 @@ const MyOrder = ({ order, clearCart }) => {
 								</span>
 							</p>
 							<div className="flex mb-4">
-								<a className="flex-grow py-2 text-lg px-1 text-center">
+								<a className="flex-grow py-2 text-lg px-1">
 									Item Description
 								</a>
-								<a className="flex-grow py-2 text-lg px-1 text-center">Quantity</a>
-								<a className="flex-grow py-2 text-lg px-1 text-center">
+								<a className="flex-grow py-2 text-lg px-1">
 									Item Total
 								</a>
 							</div>
 							{Object.keys(order.products).map((key, idx) => (
 								<div key={idx} className="flex border-t border-gray-200 py-2">
-									<span className="text-gray-500">
-										{order.products[key].name}({order.products[key].size}/
-										{order.products[key].variant})
+									<span className="text-gray-500 ml-8">
+										{order.products[key].name}
 									</span>
 									<span className="m-auto text-gray-900">
-										{order.products[key].qty}
-									</span>
-									<span className="m-auto text-gray-900">
-										₹{order.products[key].price} X {order.products[key].qty} = ₹
-										{order.products[key].price * order.products[key].qty}
+										₹{order.products[key].price}
 									</span>
 								</div>
 							))}

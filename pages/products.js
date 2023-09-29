@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
@@ -5,6 +6,13 @@ import mongoose from "mongoose";
 import Product from "../models/Product";
 
 const Prod = ({ products }) => {
+	// console.log(products);
+	// const [search, setSearch] = useState("")
+
+	// const onChange = (e) => {
+	// 	setSearch(e.target.value);
+	// };
+
 	return (
 		<div className="min-h-screen">
 			<Head>
@@ -12,7 +20,11 @@ const Prod = ({ products }) => {
 			</Head>
 
 			<section className="text-gray-600 body-font">
-				<div className="container px-5 py-24 mx-auto">
+				{/* <div className="lg:w-1/3 md:w-1/2 bg-white flex items-center md:ml-auto w-full md:py-8 mt-8 md:mt-0">
+					<label htmlFor="search" className="leading-7 text-sm text-gray-600 mx-2">Search</label>
+					<input type="text" id="search" name="search" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" value={search} onChange={onChange} />
+				</div> */}
+				<div className="container px-5 py-6 mx-auto">
 					<div className="flex flex-wrap -m-4 justify-center mx-5">
 						{Object.keys(products).length === 0 && (
 							<p>
