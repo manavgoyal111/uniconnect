@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
-import Image from "next/image";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import {
 	AiOutlineShoppingCart,
 	AiFillCloseCircle,
@@ -32,6 +31,8 @@ const Navbar = ({ user, logout, cart, addToCart, removeFromCart, clearCart, subT
 			"/forgot",
 			"/signup",
 			"/admin",
+			"/about",
+			"/contact",
 			"/",
 		];
 		if (exempted.includes(router.pathname)) {

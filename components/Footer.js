@@ -8,7 +8,6 @@ const Footer = () => {
 					<Link href="/">
 						<a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
 							<span className="ml-3 text-xl text-green-500">
-								{/* <Image src="/3.png" alt="Home" height={40} width={200} /> */}
 								Uniconnect
 							</span>
 						</a>
